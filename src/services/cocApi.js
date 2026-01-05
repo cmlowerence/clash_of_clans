@@ -1,26 +1,34 @@
+import { MOCK_CLAN } from './mockData';
+
 export const fetchFromCoC = async (endpoint) => {
-  // We no longer need the token here locally! 
-  // The Vercel function (api/proxy.js) will handle the token.
-  
-  // Encode # as %23
+  // 1. Encode # as %23
   const cleanEndpoint = endpoint.replace('#', '%23');
   
-  // Call our own Vercel backend
-  // We pass the CoC endpoint as a query parameter
-  const response = await fetch(`/api/proxy?endpoint=${cleanEndpoint}`);
+  try {
+    // 2. Try the real API
+    const response = await fetch(`/api/proxy?endpoint=${cleanEndpoint}`);
 
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    
-    if (response.status === 403) {
-      throw new Error("Access Denied: Vercel IP not whitelisted. (See instructions below)");
+    // 3. If Real API fails, use Backup
+    if (!response.ok) {
+      console.warn(`API Failed (${response.status}). Switching to Mock Data.`);
+      
+      // If we are searching for a clan or looking up clan details, return the Mock Clan
+      if (endpoint.includes('clans')) {
+        return MOCK_CLAN;
+      }
+      
+      throw new Error(`API Error ${response.status}: Real data unavailable and no mock data for this type.`);
     }
-    if (response.status === 404) {
-      throw new Error("Not Found: Check the tag and try again.");
+
+    return await response.json();
+
+  } catch (error) {
+    console.warn("Network Error. Switching to Mock Data.");
+    // Fallback for network crashes
+    if (endpoint.includes('clans')) {
+      return MOCK_CLAN;
     }
-    
-    throw new Error(errorData.message || `Error ${response.status}`);
+    throw error;
   }
-
-  return await response.json();
 };
+
