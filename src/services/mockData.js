@@ -87,3 +87,59 @@ export const MOCK_PLAYER = {
   ]
 };
 
+export const MOCK_WAR_LOG = [
+  {
+    result: "win",
+    endTime: "20231025T080000.000Z",
+    teamSize: 15,
+    clan: {
+      tag: "#2PP",
+      name: "Mock Warriors",
+      stars: 42,
+      destructionPercentage: 98.5,
+      expEarned: 150
+    },
+    opponent: {
+      tag: "#XYZ",
+      name: "Dark Legion",
+      stars: 35,
+      destructionPercentage: 85.0
+    }
+  },
+  {
+    result: "lose",
+    endTime: "20231023T080000.000Z",
+    teamSize: 30,
+    clan: {
+      tag: "#2PP",
+      name: "Mock Warriors",
+      stars: 70,
+      destructionPercentage: 90.2,
+      expEarned: 110
+    },
+    opponent: {
+      tag: "#ABC",
+      name: "Elite Goblins",
+      stars: 75,
+      destructionPercentage: 94.5
+    }
+  },
+  {
+    result: "win",
+    endTime: "20231021T080000.000Z",
+    teamSize: 10,
+    clan: {
+      tag: "#2PP",
+      name: "Mock Warriors",
+      stars: 28,
+      destructionPercentage: 100.0,
+      expEarned: 130
+    },
+    opponent: {
+      tag: "#DEF",
+      name: "Noob Slayers",
+      stars: 15,
+      destructionPercentage: 45.0
+    }
+  }
+];
