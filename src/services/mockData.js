@@ -47,7 +47,7 @@ export const MOCK_CLAN = {
       expLevel: 100,
       league: {
          name: "Gold League I",
-         iconUrls: { medium: "https://api-assets.clashofclans.com/leagues/288/8-c4-w7146y6c-i7216-9-2c7-w816.png" } // Placeholder path
+         iconUrls: { medium: "https://api-assets.clashofclans.com/leagues/288/8-c4-w7146y6c-i7216-9-2c7-w816.png" }
       },
       trophies: 2100,
       clanRank: "member",
@@ -58,3 +58,32 @@ export const MOCK_CLAN = {
   warWinStreak: 5,
   isWarLogPublic: true
 };
+
+export const MOCK_PLAYER = {
+  tag: "#G88",
+  name: "Chief Demo",
+  townHallLevel: 13,
+  townHallWeaponLevel: 4,
+  expLevel: 185,
+  trophies: 4200,
+  league: {
+    name: "Titan League II",
+    iconUrls: { medium: "https://api-assets.clashofclans.com/leagues/288/qVCZmeYH0lS7Gaa6YH8eZNvdbPaLnby5bcNAw5liV-o.png" }
+  },
+  heroes: [
+    { name: "Barbarian King", level: 65, village: "home" },
+    { name: "Archer Queen", level: 70, village: "home" },
+    { name: "Grand Warden", level: 40, village: "home" },
+    { name: "Royal Champion", level: 15, village: "home" }
+  ],
+  troops: [
+    { name: "Barbarian", level: 9, village: "home" },
+    { name: "Archer", level: 9, village: "home" },
+    { name: "Dragon", level: 8, village: "home" },
+    { name: "P.E.K.K.A", level: 9, village: "home" },
+    { name: "Hog Rider", level: 10, village: "home" },
+    { name: "Electro Dragon", level: 4, village: "home" },
+    { name: "Yeti", level: 3, village: "home" }
+  ]
+};
+
