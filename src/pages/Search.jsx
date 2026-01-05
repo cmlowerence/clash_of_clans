@@ -105,4 +105,49 @@ const Search = () => {
                       <h3 className="text-2xl font-bold text-white">{data.name}</h3>
                       <p className="text-gray-400 text-sm">{data.tag}</p>
                       <div className="flex items-center mt-2 space-x-4 text-sm font-semibold">
-                        <span className="text-yellow-400">
+                        <span className="text-yellow-400">Lvl {data.clanLevel}</span>
+                        <span className="text-blue-400">{data.members}/50 Members</span>
+                        <span className="text-green-400">{data.warWins} Wins</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -right-10 -top-10 text-9xl text-white/5 rotate-12">
+                     <FaShieldAlt />
+                  </div>
+                  <div className="absolute bottom-2 right-4 text-xs text-yellow-500 animate-pulse">
+                    Tap for Details →
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              // PLAYER CARD
+              <div className="bg-neutral-800 rounded-xl border border-blue-600 p-6 relative overflow-hidden">
+                <div className="flex items-center space-x-4 relative z-10">
+                  {data.league && <img src={data.league.iconUrls?.medium} alt="League" className="w-20 h-20" />}
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">{data.name}</h3>
+                    <p className="text-gray-400 text-sm">{data.tag}</p>
+                    <div className="flex items-center mt-2 space-x-4 text-sm font-semibold">
+                      <span className="text-yellow-400">TH {data.townHallLevel}</span>
+                      <span className="flex items-center text-white"><FaTrophy className="text-yellow-500 mr-1"/> {data.trophies}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -right-10 -top-10 text-9xl text-white/5 rotate-12">
+                   <FaUser />
+                </div>
+              </div>
+            )}
+            
+            <div className="mt-4 text-center text-gray-500 text-sm">
+              <p>Full details coming in the next update...</p>
+            </div>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+};
+
+export default Search;
