@@ -7,12 +7,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'coc-yellow': '#FACC15', // Custom yellow typically used in CoC
+        'coc-yellow': '#FACC15',
         'coc-dark': '#1e1e1e',
       },
       fontFamily: {
-        // We can add a custom game font later
-        sans: ['Graphik', 'sans-serif'],
+        // This adds the new font class 'font-clash'
+        clash: ['"Luckiest Guy"', 'cursive'],
+        sans: ['system-ui', 'sans-serif'],
       }
     },
   },
