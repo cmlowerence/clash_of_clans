@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // <--- THIS WAS MISSING
+import { Link } from 'react-router-dom';
 import { fetchFromCoC } from '../services/cocApi';
 import { FaSearch, FaUser, FaShieldAlt, FaTrophy } from 'react-icons/fa';
 
@@ -89,7 +89,7 @@ const Search = () => {
           <div className="animate-fade-in-up">
             
             {/* Warning if using Mock Data */}
-            {data.name === "Mock Warriors" && (
+            {(data.name === "Mock Warriors" || data.name === "Chief Demo") && (
                <div className="mb-4 bg-yellow-900/50 border border-yellow-600 text-yellow-200 text-xs p-2 rounded text-center">
                  ⚠️ DEMO MODE: Real API blocked. Showing sample data.
                </div>
@@ -120,27 +120,32 @@ const Search = () => {
                 </div>
               </Link>
             ) : (
-              // PLAYER CARD
-              <div className="bg-neutral-800 rounded-xl border border-blue-600 p-6 relative overflow-hidden">
-                <div className="flex items-center space-x-4 relative z-10">
-                  {data.league && <img src={data.league.iconUrls?.medium} alt="League" className="w-20 h-20" />}
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">{data.name}</h3>
-                    <p className="text-gray-400 text-sm">{data.tag}</p>
-                    <div className="flex items-center mt-2 space-x-4 text-sm font-semibold">
-                      <span className="text-yellow-400">TH {data.townHallLevel}</span>
-                      <span className="flex items-center text-white"><FaTrophy className="text-yellow-500 mr-1"/> {data.trophies}</span>
+              // PLAYER CARD (Clickable)
+              <Link to={`/player/${data.tag.replace('#', '')}`}>
+                <div className="bg-neutral-800 rounded-xl border border-blue-600 p-6 relative overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer">
+                  <div className="flex items-center space-x-4 relative z-10">
+                    {data.league && <img src={data.league.iconUrls?.medium} alt="League" className="w-20 h-20" />}
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">{data.name}</h3>
+                      <p className="text-gray-400 text-sm">{data.tag}</p>
+                      <div className="flex items-center mt-2 space-x-4 text-sm font-semibold">
+                        <span className="text-yellow-400">TH {data.townHallLevel}</span>
+                        <span className="flex items-center text-white"><FaTrophy className="text-yellow-500 mr-1"/> {data.trophies}</span>
+                      </div>
                     </div>
                   </div>
+                  <div className="absolute -right-10 -top-10 text-9xl text-white/5 rotate-12">
+                     <FaUser />
+                  </div>
+                  <div className="absolute bottom-2 right-4 text-xs text-blue-400 animate-pulse">
+                    View Village →
+                  </div>
                 </div>
-                <div className="absolute -right-10 -top-10 text-9xl text-white/5 rotate-12">
-                   <FaUser />
-                </div>
-              </div>
+              </Link>
             )}
             
             <div className="mt-4 text-center text-gray-500 text-sm">
-              <p>Full details coming in the next update...</p>
+              <p>Full details available!</p>
             </div>
           </div>
         )}
@@ -151,3 +156,4 @@ const Search = () => {
 };
 
 export default Search;
+
