@@ -1,4 +1,3 @@
-/*
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
@@ -16,22 +15,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </React.StrictMode>,
 );
-*/
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 
-// Simple style to force visibility
-const style = {
-  color: 'red',
-  fontSize: '30px',
-  backgroundColor: 'white',
-  padding: '20px',
-  marginTop: '50px'
-};
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <div style={style}>
-    <h1>TEST SUCCESSFUL</h1>
-    <p>React is working.</p>
-  </div>
-);
