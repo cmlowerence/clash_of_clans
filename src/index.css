@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Global Styles */
 body {
-  background-color: #0f0f0f; /* Dark background like the game */
+  background-color: #0f0f0f;
   color: white;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* Basic text remains readable sans-serif */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Apply the game font to all Headings automatically */
+h1, h2, h3 {
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: 1px;
+  /* Add a text shadow to make it pop like the game */
+  text-shadow: 2px 2px 0px #000;
 }
