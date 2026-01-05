@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
+import authReducer from '../features/authSlice';
 
 export const store = configureStore({
   reducer: {
-    // We will add slices (user, clan, etc.) here later
+    auth: authReducer,
   },
 });
