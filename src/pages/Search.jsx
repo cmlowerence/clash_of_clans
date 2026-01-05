@@ -88,8 +88,9 @@ const Search = () => {
         {data && (
           <div className="animate-fade-in-up">
             {activeTab === 'clan' ? (
-              // CLAN CARD
-              <div className="bg-neutral-800 rounded-xl border border-yellow-600 p-6 relative overflow-hidden">
+                          // CLAN CARD
+            <Link to={`/clan/${data.tag.replace('#', '')}`}>
+              <div className="bg-neutral-800 rounded-xl border border-yellow-600 p-6 relative overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer">
                 <div className="flex items-center space-x-4 relative z-10">
                   <img src={data.badgeUrls?.medium} alt="Badge" className="w-20 h-20 drop-shadow-lg" />
                   <div>
@@ -106,7 +107,13 @@ const Search = () => {
                 <div className="absolute -right-10 -top-10 text-9xl text-white/5 rotate-12">
                    <FaShieldAlt />
                 </div>
+                {/* Click Hint */}
+                <div className="absolute bottom-2 right-4 text-xs text-yellow-500 animate-pulse">
+                  Tap for Details →
+                </div>
               </div>
+            </Link>
+
             ) : (
               // PLAYER CARD
               <div className="bg-neutral-800 rounded-xl border border-blue-600 p-6 relative overflow-hidden">
