@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Search from './pages/Search';
+import ClanDetails from './pages/ClanDetails'; // Import new page
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/search" element={<Search />} />
+        {/* The :tag part is dynamic, it will grab whatever tag we click */}
+        <Route path="/clan/:tag" element={<ClanDetails />} />
       </Routes>
     </div>
   );
