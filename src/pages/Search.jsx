@@ -87,6 +87,11 @@ const Search = () => {
         {/* RESULTS SECTION */}
         {data && (
           <div className="animate-fade-in-up">
+             {data.name === "Mock Warriors" && (
+       <div className="mb-4 bg-yellow-900/50 border border-yellow-600 text-yellow-200 text-xs p-2 rounded text-center">
+         ⚠️ DEMO MODE: Real API is blocked. Showing sample data.
+       </div>
+    )}
             {activeTab === 'clan' ? (
                           // CLAN CARD
             <Link to={`/clan/${data.tag.replace('#', '')}`}>
