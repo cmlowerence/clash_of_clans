@@ -1,4 +1,4 @@
-import { MOCK_CLAN } from './mockData';
+import { MOCK_CLAN, MOCK_PLAYER } from './mockData';
 
 export const fetchFromCoC = async (endpoint) => {
   // 1. Encode # as %23
@@ -12,9 +12,14 @@ export const fetchFromCoC = async (endpoint) => {
     if (!response.ok) {
       console.warn(`API Failed (${response.status}). Switching to Mock Data.`);
       
-      // If we are searching for a clan or looking up clan details, return the Mock Clan
+      // Return Mock Clan
       if (endpoint.includes('clans')) {
         return MOCK_CLAN;
+      }
+      
+      // Return Mock Player
+      if (endpoint.includes('players')) {
+        return MOCK_PLAYER;
       }
       
       throw new Error(`API Error ${response.status}: Real data unavailable and no mock data for this type.`);
@@ -27,6 +32,9 @@ export const fetchFromCoC = async (endpoint) => {
     // Fallback for network crashes
     if (endpoint.includes('clans')) {
       return MOCK_CLAN;
+    }
+    if (endpoint.includes('players')) {
+      return MOCK_PLAYER;
     }
     throw error;
   }
